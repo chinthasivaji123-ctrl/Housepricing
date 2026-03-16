@@ -8,7 +8,7 @@
 
          <style>
             body {
-               background-color: pink;
+               background-color:white;
                font-family: 'Arimo',sans-serif;
                display:flex;
                justify-content: center;
@@ -18,11 +18,11 @@
             }
 
             .login {
-                background-color: white;
+                background-color: yellow;
                 padding: 40px;
                 border-radius: 10px;
                 box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
-                width: 200px;
+                width: 600px;
                 max-width: 1000px;
                 text-align: center;
 
@@ -67,6 +67,8 @@
             h2 {
                 color: #2c3e50;
                 margin-top: 20px;
+
+                font-size: 1.5rem;
             }
 
 
@@ -80,27 +82,29 @@
            <h1>Boston House Price Prediction</h1>
            <!--Main input for receiving query to our ml-->
            <form action="{{url_for('predict')}}"method="post">
-            <input type="text" name="CRIM" placeholder="CRIM" required="required" /><br>
-            <input type="text" name="ZN" placeholder="ZN" required="required" /><br>
-            <input type="text" name="INDUS" placeholder="INDUS" required="required" /><br>
-            <input type="text" name="CHAS" placeholder="CHAS" required="required" /><br>
-            <input type="text" name="NOX" placeholder="NOX" required="required" /><br>
-            <input type="text" name="RM" placeholder="RM" required="required" /><br>
+            <input type="text" name="CRIM" placeholder="CRIM[Crime rate in the area]" required="required" /><br>
+            <input type="text" name="ZN" placeholder="ZN[Amount of land used for large houses]" required="required" /><br>
+            <input type="text" name="INDUS" placeholder="INDUS[Industrial area (factories, companies)]" required="required" /><br>
+            <input type="text" name="CHAS" placeholder="CHAS[Whether the house is near the Charles River (1 = Yes, 0 = No)]" required="required" /><br>
+            <input type="text" name="NOX" placeholder="NOX[Air pollution level]" required="required" /><br>
+            <input type="text" name="RM" placeholder="RM[Average number of rooms in houses]" required="required" /><br>
 
-            <input type="text" name="AGE" placeholder="AGE" required="required" /><br>
-            <input type="text" name="DIS" placeholder="DIS" required="required" /><br>
-            <input type="text" name="RAD" placeholder="RAD" required="required" /><br>
-            <input type="text" name="TAX" placeholder="TAX" required="required" /><br>
-            <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" /><br>
-            <input type="text" name="B" placeholder="B" required="required" /><br>
-            <input type="text" name="LSTAT" placeholder="LSTAT" required="required" /><br>
+            <input type="text" name="AGE" placeholder="AGE[How old the houses are]" required="required" /><br>
+            <input type="text" name="DIS" placeholder="DIS[Distance to job centers]" required="required" /><br>
+            <input type="text" name="RAD" placeholder="RAD[Access to main roads/highways]" required="required" /><br>
+            <input type="text" name="TAX" placeholder="TAX[Property tax rate]" required="required" /><br>
+            <input type="text" name="PTRATIO" placeholder="PTRATIO[Number of students per teacher in schools]" required="required" /><br>
+            <input type="text" name="B" placeholder="B[Population demographic factor]" required="required" /><br>
+            <input type="text" name="LSTAT" placeholder="LSTAT[Percentage of lower income population]" required="required" /><br>
             
             <button type="submit" class="btn btn-primary btn-block btn-large">predict</button>
            </form>
 
            <br>
            <br>
+            <h2>{{prediction_text}}</h2>
         </div>
-        <h2>{{prediction_text}}</h2>
+
+       
     </body>
 </html>

@@ -32,7 +32,9 @@ def predict():
   final_input=scalar.transform(np.array(data).reshape(1,-1))
   print(final_input)
   output=regmodel.predict(final_input)[0]
-  return render_template("home.html",prediction_text="the house price prediction is {}".format(output))
+  actual_price=output*1000
+  formatted_price="${:,.2f}".format(actual_price)
+  return render_template("home.html",prediction_text="the house price prediction is {}".format(formatted_price))
 import os
 
 if __name__ == "__main__":
